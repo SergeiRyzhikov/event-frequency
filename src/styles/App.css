@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+form {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+input {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    width: 20%;
+    /* background-color: rgb(197, 204, 0); */
+    border: 1px solid black;
+    /* justify-content: center; */
+}
+button.send {
+    width: auto;
+}
+.customInputCalendar {
+    background-color: aqua;
+    /* position: absolute; */
+    width: 20px;
+    height: 20px;
+    /* opacity: 0; */
+}
+.buttonPlus{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+div.top {
+    display: flex;
+    justify-content:space-between;
+}
