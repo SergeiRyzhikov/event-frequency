@@ -37,3 +37,10 @@ div.top {
     display: flex;
     justify-content:space-between;
 }
+a.linkHistory {
+    cursor: pointer;
+    height: 5px;
+}
+h1.headerHistory{
+    text-align: center;
+}

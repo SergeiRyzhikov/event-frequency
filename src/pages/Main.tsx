@@ -6,8 +6,9 @@ import 'react-calendar-datetime-picker/dist/style.css'
 
 import IEvent from '../API/models/ins'
 
-import IDate from '../types/types'
+import {IDate} from '../types/types'
 import Event from '../components/Event'
+import FormCalendar from '../components/FormCalendar'
 
 const Main:FC = () =>{
   const [userName, setUserName] = useState<string>('')
@@ -75,11 +76,14 @@ const Main:FC = () =>{
     fetchCreateEvent(String(localStorage.getItem('token')), eventName, date)
   }
 
-  const onchangeEvent =(e: React.ChangeEvent<HTMLInputElement>)=>{
+  const onChangeEvent =(e: React.ChangeEvent<HTMLInputElement>)=>{
     setEventName(e.target.value.toLowerCase())
   }
 
-
+  const onClickHistory = (e: React.MouseEvent<HTMLElement>)=>{
+    e.preventDefault()
+    navigate('/history')
+  }
   useEffect(() => {
       console.log('useEffect')
       if (localStorage.getItem('token')){
@@ -101,23 +105,12 @@ const Main:FC = () =>{
         <h1>Как часто?</h1>
 
         </div>
-        <a>ИСТОРИЯ</a>
+        <a className="linkHistory"onClick={onClickHistory}>ИСТОРИЯ</a>
         
         </div>
-        <form action="" onSubmit={onSubmit}>
-          <input type="text" placeholder='введите событие' value={eventName} onChange={onchangeEvent}/> 
-          <div className="calendar" ref={calendarRef} >
-          <DtPicker  
-          onChange={setDate}
-          type='single'
-          local='en'
-          withTime
-          isRequired
-          showTimeInput
-          showWeekend/>
-          </div>
-          <button type='submit' className='send'>отправить</button>
-        </form>
+        
+        <FormCalendar onSubmit={onSubmit} onChangeEvent={onChangeEvent} setDate={setDate} eventName={eventName} type={false}/>
+
         {events &&
           <div>
             {events.map( (event) => <Event name={event.name} time={event.time} fetchDeleteEvent={fetchDeleteEvent}/> )}

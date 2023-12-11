@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from "axios"
 import { type } from "os"
 import IEvent from "./models/ins"
 
-import Idate from '../types/types'
+import {IDate} from '../types/types'
 export default class PostService {
     baseUrl = 'http://127.0.0.1:8000'
 
@@ -46,7 +46,7 @@ export default class PostService {
         }   
     }
 
-    static async createEvent(token:string, name: string, time: Idate){
+    static async createEvent(token:string, name: string, time: IDate){
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/create_event',
             {
@@ -82,7 +82,7 @@ export default class PostService {
             console.log(e)
         }   
     }
-    static async deleteEvent(token:string, name: string, time: Idate){
+    static async deleteEvent(token:string, name: string, time: IDate){
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/delete_event',
             {

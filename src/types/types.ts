@@ -1,4 +1,5 @@
-export default interface IDate{
+
+export interface IDate{
     year: number
     month: number
     day: number
@@ -6,4 +7,7 @@ export default interface IDate{
     minute: number
   }
   
-  
+export interface IRangeDate{
+  from: IDate
+  to: IDate
+}

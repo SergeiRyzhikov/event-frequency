@@ -1,4 +1,4 @@
-import IDate from "../../types/types"
+import {IDate} from "../../types/types"
 
 export default interface IEvent{
     name: string

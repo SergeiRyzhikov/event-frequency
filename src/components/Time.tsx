@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react'
-import IDate from '../types/types'
+import {IDate} from '../types/types'
 
 interface ITimeProps {
     date: IDate
