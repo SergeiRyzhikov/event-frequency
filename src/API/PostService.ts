@@ -1,9 +1,8 @@
-import axios, { AxiosResponse } from "axios"
+import axios from "axios"
 import IEvent from "./models/ins"
 
 import {IDate} from '../types/types'
 export default class PostService {
-    baseUrl = 'http://127.0.0.1:8000'
 
     static async login(userName:string, password:string){
         try {
@@ -31,6 +30,7 @@ export default class PostService {
             console.log(e)
         }   
     }
+
     static async getUser(token:string){
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/users/me',
@@ -81,6 +81,7 @@ export default class PostService {
             console.log(e)
         }   
     }
+    
     static async deleteEvent(token:string, name: string, time: IDate){
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/delete_event',

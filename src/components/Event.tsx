@@ -12,7 +12,7 @@ const Event:FC<IEventProps> = ({name, time, fetchDeleteEvent}:IEventProps) =>{
     return(
         <div>
             <h4 className='eventHeader'>{name}</h4>
-            <ul>{time.map( (tim, i)=><Time date={tim} fetchDeleteEvent={fetchDeleteEvent} name={name} key={i}/>)}</ul>
+            <ul>{time.map( (date, i)=><Time date={date} fetchDeleteEvent={fetchDeleteEvent} name={name} key={i}/>)}</ul>
         </div>
     )
 }

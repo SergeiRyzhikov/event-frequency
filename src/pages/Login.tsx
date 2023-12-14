@@ -22,11 +22,10 @@ const Login:FC = ()=> {
     const navigate = useNavigate()
 
     async function fetchLogin (userName:string, password:string) {
+        
         const response = await PostService.login(userName, password)
-        console.log(response)
         if (response) {
             setIsError(false)
-            console.log(response.message)
             navigate('/verify')
         }
         else {
@@ -36,6 +35,7 @@ const Login:FC = ()=> {
     }
     const onSubmit = (e: React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault()
+
         console.log(userName, password)
         if (userName && password.length>=6){
             fetchLogin(userName, password)
@@ -44,7 +44,6 @@ const Login:FC = ()=> {
             setErrorText('введите имя пользвателя')
             setIsError(true)
         }
-            
     }
     
     

@@ -15,8 +15,7 @@ interface IForm {
 
 const FormCalendar:FC<IForm> = ({onSubmit, eventName, onChangeEvent, setDate, type, events}) => {
   return (
-    <form action="" onSubmit={onSubmit}>
-          
+    <form action="" onSubmit={onSubmit}>  
           {type ?
             <div>
             <select required onChange={e => {onChangeEvent(e.target.value)}}>
@@ -49,7 +48,6 @@ const FormCalendar:FC<IForm> = ({onSubmit, eventName, onChangeEvent, setDate, ty
             showWeekend/>
             </div>
           }
-          
           <button type='submit' className='send'>отправить</button>
         </form>
   )
