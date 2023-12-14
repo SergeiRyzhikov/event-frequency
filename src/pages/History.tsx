@@ -2,10 +2,8 @@ import React, { FC, useEffect, useState } from 'react'
 import PostService from '../API/PostService'
 import { useNavigate } from 'react-router-dom'
 import IEvent from '../API/models/ins'
-import { DtPicker } from 'react-calendar-datetime-picker'
 import {IDate} from '../types/types'
 import {IRangeDate} from '../types/types'
-// import {} from '../types/types'
 import FormCalendar from '../components/FormCalendar'
 
 const History:FC = ()=> {

@@ -1,5 +1,4 @@
 import axios, { AxiosResponse } from "axios"
-import { type } from "os"
 import IEvent from "./models/ins"
 
 import {IDate} from '../types/types'

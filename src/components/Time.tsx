@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import  { FC } from 'react'
 import {IDate} from '../types/types'
 
 interface ITimeProps {

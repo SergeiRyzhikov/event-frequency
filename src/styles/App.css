@@ -21,13 +21,7 @@ input {
 button.send {
     width: auto;
 }
-.customInputCalendar {
-    /* background-color: ; */
-    /* position: absolute; */
-    /* width: 20px; */
-    /* height: 20px; */
-    /* opacity: 0; */
-}
+
 .buttonPlus{
     position: absolute;
     width: 20px;

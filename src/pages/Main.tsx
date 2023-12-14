@@ -1,7 +1,6 @@
 import React, { FC, useEffect, useRef, useState } from 'react'
 import PostService from '../API/PostService'
 import { useNavigate } from 'react-router-dom'
-import { DtPicker} from 'react-calendar-datetime-picker'
 import 'react-calendar-datetime-picker/dist/style.css'
 
 import IEvent from '../API/models/ins'

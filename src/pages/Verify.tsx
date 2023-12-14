@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useState } from 'react'
+import React, { FC, useState } from 'react'
 import Form from '../components/Form'
 import PostService from '../API/PostService'
 import { useNavigate } from 'react-router-dom'

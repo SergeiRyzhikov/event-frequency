@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FC, FormEventHandler } from 'react'
+import { ChangeEventHandler, FC, FormEventHandler } from 'react'
 
 interface IForm {
     onSubmit: FormEventHandler<HTMLFormElement>

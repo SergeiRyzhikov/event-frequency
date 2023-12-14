@@ -1,10 +1,8 @@
-import React, { FC, useEffect, useState } from 'react'
+import  { FC } from 'react'
 import IEvent from '../API/models/ins'
 import Time from '../components/Time'
-import { DtPicker} from 'react-calendar-datetime-picker'
 import 'react-calendar-datetime-picker/dist/style.css'
 import {IDate} from '../types/types'
-import {IRangeDate} from '../types/types'
 
 interface IEventProps extends IEvent{
     fetchDeleteEvent: (token: string, name: string, time: IDate)=>void
