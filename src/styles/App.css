@@ -14,9 +14,7 @@ input {
     color: rgb(0, 0, 0);
     text-align: center;
     width: 20%;
-    /* background-color: rgb(197, 204, 0); */
     border: 1px solid black;
-    /* justify-content: center; */
 }
 button.send {
     width: auto;
@@ -33,7 +31,7 @@ button.buttonDeleteEvent{
     transition-duration: 0.4s;
 }
 button.buttonDeleteEvent:hover {
-    background-color: #04AA6D; /* Green */
+    background-color: #04AA6D;
     color: white;
   }
 div.top {
@@ -42,7 +40,6 @@ div.top {
 }
 a.linkHistory {
     cursor: pointer;
-    /* height: 5px; */
     background-color: red;
     color: white;
     padding: 1em 1.5em;
@@ -56,7 +53,6 @@ h1.headerHistory{
 }
 a.linkMain {
     cursor: pointer;
-    /* height: 5px; */
     position: absolute;
     right: 0;
     background-color: red;

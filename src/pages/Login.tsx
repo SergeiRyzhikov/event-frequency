@@ -1,9 +1,9 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useState } from 'react'
 import PostService from '../API/PostService'
 import { useNavigate } from 'react-router-dom'
 import Form from '../components/Form'
 
-const Login:FC = ()=> {
+const Login: FC = ()=> {
     
     const [userName, setUserName] = useState<string>('')
 
@@ -22,14 +22,14 @@ const Login:FC = ()=> {
     const navigate = useNavigate()
 
     async function fetchLogin (userName:string, password:string) {
-        
+
         const response = await PostService.login(userName, password)
         if (response) {
             setIsError(false)
             navigate('/verify')
         }
         else {
-            setErrorText('такой пользователь уже существует')
+            setErrorText('Такой пользователь уже существует :(')
             setIsError(true)
         }
     }
@@ -41,12 +41,11 @@ const Login:FC = ()=> {
             fetchLogin(userName, password)
         }
         else{
-            setErrorText('введите имя пользвателя')
+            setErrorText('Введите имя пользвателя')
             setIsError(true)
         }
     }
-    
-    
+
   return (
     <div>
         <h1>Зарегистрироваться</h1>
@@ -60,8 +59,6 @@ const Login:FC = ()=> {
             {errorText}
         </div>
         }
-        
-
     </div>
   )
 }

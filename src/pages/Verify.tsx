@@ -16,19 +16,21 @@ const Verify:FC = ()=> {
   const onChangeName =(e: React.ChangeEvent<HTMLInputElement>)=>{
     setUserName(e.target.value)
   }
+
   const onChangePassword =(e: React.ChangeEvent<HTMLInputElement>)=>{
     setPassword(e.target.value)
   }
+
   const onSubmit =(e: React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault()
-    console.log(userName, password)
     fetchVerify(userName, password)
   }
+
   async function fetchVerify (userName:string, password:string) {
     const response = await PostService.verify(userName, password)
+
     if (response){
         localStorage.setItem('token', response.token)
-        console.log(response.token)
         navigate('/')
     }else{
         setIsError(true)
@@ -38,16 +40,15 @@ const Verify:FC = ()=> {
     <div>
     <h1>Войти</h1>
     <Form password={password} userName={userName} onChangePassword={onChangePassword} onChangeName={onChangeName} onSubmit={onSubmit}/>
-    
     <div>
     Или можете зарегистрироваться
     <button onClick={(e)=>{navigate('/login')}}>Зарегистрироваться</button>
     </div>
     {isError &&
-        <div>
-            Неверное имя или неверный пароль
-        </div>
-      }
+      <div>
+          Неверное имя или неверный пароль
+      </div>
+    }
     </div>
 
   )
