@@ -141,10 +141,10 @@ const History:FC = ()=> {
           <FormCalendar onSubmit={onSubmit}  onChangeEvent={setEventName} setDate={setRangeDate} eventName={eventName} type={true} events={events}/>
           {currentDates.length !== 0 ?
             <div>
-            <div>Событие - <strong>{eventName}</strong> ||||||||||||| количество - <strong>{currentDates.length}</strong> </div>
-            <div>
-            {currentDates.map( (date)=> <div>{date.year}.{date.month}.{date.day}  {date.hour}:{date.minute}</div>)}
-            </div>
+            <div className='historyEventHeader'>Событие - <strong>{eventName}</strong> ||||||||||||| количество - <strong>{currentDates.length}</strong> </div>
+            <ul className='dates'>
+            {currentDates.map( (date, i)=> <li className='dateCell' key={i}>{date.year}.{date.month}.{date.day}  {date.hour}:{date.minute}</li>)}
+            </ul>
             </div>
             :
             <div>за указанный период события - <strong>{eventName}</strong> - вы не делали</div>

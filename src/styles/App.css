@@ -21,12 +21,21 @@ input {
 button.send {
     width: auto;
 }
-
-.buttonPlus{
-    position: absolute;
-    width: 20px;
-    height: 20px;
+.customInputCalendar {
+    padding: 0;
+    margin: 2%;
 }
+button.buttonDeleteEvent{
+    background-color: white;
+    color: black;
+    border: 1px solid #555555;
+    padding: 0.2%;
+    transition-duration: 0.4s;
+}
+button.buttonDeleteEvent:hover {
+    background-color: #04AA6D; /* Green */
+    color: white;
+  }
 div.top {
     display: flex;
     justify-content:space-between;
@@ -65,4 +74,17 @@ div.topHistory {
 
 input.inputMain {
     width: 100%;
+}
+
+li.dateCell {
+    margin: 5px;
+}
+ul.dates{
+    width: auto;
+    display: inline-block;
+    background-color: #dcf4e6;
+}
+h4.eventHeader {
+    margin-top: 2%;
+    margin-left: 1%;
 }

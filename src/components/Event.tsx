@@ -11,9 +11,8 @@ interface IEventProps extends IEvent{
 const Event:FC<IEventProps> = ({name, time, fetchDeleteEvent}:IEventProps) =>{
     return(
         <div>
-            <div>{name}
-           </div>
-            {time.map( (tim)=><Time date={tim} fetchDeleteEvent={fetchDeleteEvent} name={name}/>)}
+            <h4 className='eventHeader'>{name}</h4>
+            <ul>{time.map( (tim, i)=><Time date={tim} fetchDeleteEvent={fetchDeleteEvent} name={name} key={i}/>)}</ul>
         </div>
     )
 }

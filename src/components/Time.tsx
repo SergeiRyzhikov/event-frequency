@@ -12,9 +12,9 @@ const Time:FC<ITimeProps> = ({date, fetchDeleteEvent, name}:ITimeProps) =>{
         fetchDeleteEvent(String(localStorage.getItem('token')), name, date)
     }
     return(
-        <div>
-            {date.year}.{date.month}.{date.day}  {date.hour}:{date.minute} <button onClick={onDeleteEvent}>X</button>
-        </div>
+        <li className='dateCell'>
+            {date.year}.{date.month}.{date.day}  {date.hour}:{date.minute} <button className='buttonDeleteEvent'onClick={onDeleteEvent}>X</button>
+        </li>
     )
 }
 

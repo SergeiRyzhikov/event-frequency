@@ -100,8 +100,7 @@ const Main:FC = () =>{
       <div className='top'>
       
         <div>
-        <div>Вечер в хату {userName}</div>
-        <h1>Как часто?</h1>
+        <h1>Как часто, {userName}?</h1>
 
         </div>
         <a className="linkHistory"onClick={onClickHistory}>ИСТОРИЯ</a>
@@ -112,7 +111,7 @@ const Main:FC = () =>{
 
         {events &&
           <div>
-            {events.map( (event) => <Event name={event.name} time={event.time} fetchDeleteEvent={fetchDeleteEvent}/> )}
+            {events.map( (event, index) => <Event name={event.name} time={event.time} key={index} fetchDeleteEvent={fetchDeleteEvent}/> )}
             </div>
         }
         <img src="photo.jpg"  alt="" />

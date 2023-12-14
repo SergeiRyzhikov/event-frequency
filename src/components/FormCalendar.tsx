@@ -21,7 +21,7 @@ const FormCalendar:FC<IForm> = ({onSubmit, eventName, onChangeEvent, setDate, ty
             <div>
             <select required onChange={e => {onChangeEvent(e.target.value)}}>
             <option disabled >Выберите ваше событие</option>
-            {events.map( (event) => <option >{event.name}</option> )}
+            {events.map( (event, i) => <option key={i} >{event.name}</option> )}
             </select>
             <DtPicker  
             onChange={setDate}
