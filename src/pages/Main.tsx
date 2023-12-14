@@ -109,7 +109,7 @@ const Main:FC = () =>{
         
         </div>
         
-        <FormCalendar onSubmit={onSubmit} onChangeEvent={onChangeEvent} setDate={setDate} eventName={eventName} type={false}/>
+        <FormCalendar onSubmit={onSubmit} onChangeEvent={onChangeEvent} setDate={setDate} eventName={eventName} type={false} events={events}/>
 
         {events &&
           <div>

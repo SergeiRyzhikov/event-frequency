@@ -22,10 +22,10 @@ button.send {
     width: auto;
 }
 .customInputCalendar {
-    background-color: aqua;
+    /* background-color: ; */
     /* position: absolute; */
-    width: 20px;
-    height: 20px;
+    /* width: 20px; */
+    /* height: 20px; */
     /* opacity: 0; */
 }
 .buttonPlus{
@@ -39,8 +39,36 @@ div.top {
 }
 a.linkHistory {
     cursor: pointer;
-    height: 5px;
+    /* height: 5px; */
+    background-color: red;
+    color: white;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1.5px black solid;
+    
 }
 h1.headerHistory{
     text-align: center;
+}
+a.linkMain {
+    cursor: pointer;
+    /* height: 5px; */
+    position: absolute;
+    right: 0;
+    background-color: red;
+    color: white;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1.5px black solid;
+    
+}
+div.topHistory {
+    display: flex;
+    justify-content: center;
+}
+
+input.inputMain {
+    width: 100%;
 }

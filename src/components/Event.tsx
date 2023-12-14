@@ -14,7 +14,6 @@ const Event:FC<IEventProps> = ({name, time, fetchDeleteEvent}:IEventProps) =>{
     return(
         <div>
             <div>{name}
-            
            </div>
             {time.map( (tim)=><Time date={tim} fetchDeleteEvent={fetchDeleteEvent} name={name}/>)}
         </div>
