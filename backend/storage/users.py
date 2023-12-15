@@ -2,9 +2,7 @@ from abc import ABC, abstractmethod
 from collections import defaultdict
 import json
 from typing import Union
-from pydantic import BaseModel
 from models.base import SavedUser
-
 from models.ins import CreateUser
 
 
@@ -23,9 +21,8 @@ class InMemoryUserStorage(UserStorage):
     
     def create_user(self, new_user: CreateUser) -> None:
         user_name = new_user.userName
-        if all(user.userName!=user_name for user in self._users.values()):
-            self._users[user_name]=new_user
-
+        if all(user.userName != user_name for user in self._users.values()):
+            self._users[user_name] = new_user
     
     def get_user(self, userName: str) -> Union[SavedUser, None]:
         try:
@@ -33,7 +30,6 @@ class InMemoryUserStorage(UserStorage):
         except KeyError:
             return None
         
-
 
 class InFileUserStorage(UserStorage):
     def __init__(self) -> None:
@@ -54,9 +50,10 @@ class InFileUserStorage(UserStorage):
     def get_user(self, userName: str) -> SavedUser:
         with open('D:/programms/проект АиП 2/backend/storage/users.json') as eventFile:
             users = json.loads(eventFile.read())
-        try:
-            current_user = users[userName]
+        
+        current_user = users.get(userName)
+        if current_user:
             return SavedUser.model_validate(current_user)
-        except KeyError:
+        else:
             return SavedUser(userName= '', password= '')
     

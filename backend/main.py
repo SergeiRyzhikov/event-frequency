@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from models.base import SavedEvent
 from storage.events import InFileEventStorage
 from models.ins import CreateEvent, CreateToken, CreateUser, DeleteEvent
-from models.outs import Token, User, CreateEventMessage
+from models.outs import IsDelete, Token, User, CreateEventMessage
 from storage.users import InFileUserStorage
 
 
@@ -17,6 +17,7 @@ origins = [
     "https://localhost.tiangolo.com",
     "http://localhost",
     "http://localhost:3000",
+    "http://localhost:3001",
 ]
 
 app.add_middleware(
@@ -36,17 +37,12 @@ eventStorage = InFileEventStorage()
 def get_user_from_token(token: Token)->User:
     return User(userName=token.token[8:])
 
-@app.get('/')
-def get_text():
-    return 'hello world'
-
-
 # Регистриция
 @app.post('/api/users', response_model=User)
 def create_user(user: CreateUser):
     print(userStorage.get_user(user.userName))
     if userStorage.get_user(user.userName).userName:
-        raise HTTPException(404, f'user already exists ')
+        raise HTTPException(400, f'user already exists')
     else:
         userStorage.create_user(user)
         return user
@@ -61,7 +57,7 @@ def get_token(user: CreateToken):
         else:
             raise HTTPException(404, 'password is incorrect')
     else:
-        raise HTTPException(404, f'username is incorrect{u}')
+        raise HTTPException(404, 'username is incorrect')
 
         
 @app.post('/api/users/me', response_model=User) 
@@ -85,9 +81,16 @@ def get_events(token:Token):
 
     return events
 
-@app.post('/api/delete_event', response_model = bool) 
+@app.post('/api/delete_event', response_model = IsDelete) 
 def delete_event(item: DeleteEvent):
-    
+    """
+    Delete event from fileEventStorage
+
+    :param item: contains token to check user and event, that need to delete
+    :type item: DeleteEvent
+    :returns isdelete: is event delete
+    :rtype: bool
+    """
     user_name =  get_user_from_token(item.token)
     isDelete = eventStorage.delete_event(user_name, item.event)
 

@@ -8,3 +8,6 @@ class Token(BaseModel):
 
 class CreateEventMessage(BaseModel):
     message:str
+
+class IsDelete(BaseModel):
+    isDelete: bool

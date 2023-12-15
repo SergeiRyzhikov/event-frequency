@@ -3,11 +3,19 @@ from collections import defaultdict
 from typing import Union
 import json
 
-from models.outs import User
+from models.outs import IsDelete, User
 from models.base import Event, SavedEvent
 
 
-def write_events(events):
+def write_events(events: list[SavedEvent]) -> None:
+    """ 
+    Write events in file
+
+    :param events: The events to write in file 
+    :type url: list[SavedEvent]
+    :returns: -
+    :rtype: None
+    """
     with open('D:/programms/проект АиП 2/backend/storage/events.json', 'w') as eventFile:
         eventFile.write(json.dumps(events))
 
@@ -21,7 +29,7 @@ class EventStorage(ABC):
         pass
 
     @abstractmethod
-    def delete_event(self, user: User) -> bool:
+    def delete_event(self, user: User) -> IsDelete:
         pass
 
 class InMemoryEventStorage(EventStorage):
@@ -58,9 +66,10 @@ class InFileEventStorage(EventStorage):
         events = json.loads(eventFile.read())
         eventFile.close()
 
-        user_name = user.userName
-        try: 
-            all_events = events[user_name]
+        all_events = events.get(user.userName)
+
+        if all_events:
+            all_events = events[user.userName]
             for i in range(len(all_events)):
                 if all_events[i]['name']==event.name:
                     print(event.name)
@@ -68,28 +77,25 @@ class InFileEventStorage(EventStorage):
                     break
             else:
                 all_events.append({'name':event.name, 'time':[event.time.model_dump()]})
-        except KeyError:
-            events[user_name] = [{'name':event.name, 'time':[event.time.model_dump()]}]
+        else:
+            events[user.userName] = [{'name':event.name, 'time':[event.time.model_dump()]}]
             
         write_events(events)
             
     def get_events(self, user: User) -> Union[list[SavedEvent], None]:
         with open('D:/programms/проект АиП 2/backend/storage/events.json') as eventFile:
             events = json.loads(eventFile.read())
-        try:
-            return events[user.userName]
-        except KeyError:
-            return None
+
+        return events.get(user.userName)
+
         
-    def delete_event(self, user: User, event: Event) -> bool:
+    def delete_event(self, user: User, event: Event) -> IsDelete:
 
         with open('D:/programms/проект АиП 2/backend/storage/events.json') as eventFile:
             events = json.loads(eventFile.read())
-
-        try:
-            user_events =  events[user.userName]
-        except KeyError:
-            return False
+        user_events =  events.get(user.userName)
+        if not user_events:
+            return IsDelete(isDelete=False)
         
         for t, user_event in enumerate(user_events):
             if user_event['name']==event.name:
@@ -103,5 +109,5 @@ class InFileEventStorage(EventStorage):
                             events[user.userName][t]['time'].pop(i)
                         write_events(events)
                         
-                        return True
-        return False
+                        return IsDelete(isDelete=True)
+        return IsDelete(isDelete=False)
