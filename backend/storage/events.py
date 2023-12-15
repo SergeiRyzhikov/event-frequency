@@ -16,7 +16,7 @@ def write_events(events: list[SavedEvent]) -> None:
     :returns: -
     :rtype: None
     """
-    with open('D:/programms/проект АиП 2/backend/storage/events.json', 'w') as eventFile:
+    with open('D:/programms/project AiP/backend/storage/eventsStorage.json', 'w') as eventFile:
         eventFile.write(json.dumps(events))
 
 class EventStorage(ABC):
@@ -62,7 +62,7 @@ class InFileEventStorage(EventStorage):
 
     
     def create_event(self, user: User, event: Event) -> None:
-        eventFile = open('D:/programms/проект АиП 2/backend/storage/events.json', 'r')
+        eventFile = open('D:/programms/project AiP/backend/storage/eventsStorage.json', 'r')
         events = json.loads(eventFile.read())
         eventFile.close()
 
@@ -72,7 +72,6 @@ class InFileEventStorage(EventStorage):
             all_events = events[user.userName]
             for i in range(len(all_events)):
                 if all_events[i]['name']==event.name:
-                    print(event.name)
                     all_events[i]['time'].append(event.time.model_dump())
                     break
             else:
@@ -83,7 +82,7 @@ class InFileEventStorage(EventStorage):
         write_events(events)
             
     def get_events(self, user: User) -> Union[list[SavedEvent], None]:
-        with open('D:/programms/проект АиП 2/backend/storage/events.json') as eventFile:
+        with open('D:/programms/project AiP/backend/storage/eventsStorage.json') as eventFile:
             events = json.loads(eventFile.read())
 
         return events.get(user.userName)
@@ -91,7 +90,7 @@ class InFileEventStorage(EventStorage):
         
     def delete_event(self, user: User, event: Event) -> IsDelete:
 
-        with open('D:/programms/проект АиП 2/backend/storage/events.json') as eventFile:
+        with open('D:/programms/project AiP/backend/storage/eventsStorage.json') as eventFile:
             events = json.loads(eventFile.read())
         user_events =  events.get(user.userName)
         if not user_events:

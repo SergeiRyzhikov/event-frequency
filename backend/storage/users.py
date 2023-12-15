@@ -36,19 +36,19 @@ class InFileUserStorage(UserStorage):
         self._users: dict[CreateUser.userName, CreateUser] = defaultdict()
     
     def create_user(self, new_user: CreateUser) -> None:
-        eventFile = open('D:/programms/проект АиП 2/backend/storage/users.json', 'r')
+        eventFile = open('D:/programms/project AiP/backend/storage/usersStorage.json', 'r')
         users = json.loads(eventFile.read())
         eventFile.close()
         user_name = new_user.userName
         if all(user['userName']!=user_name for user in users.values()):
             users[user_name]=new_user.model_dump()
-            with open('D:/programms/проект АиП 2/backend/storage/users.json', 'w') as eventFile:
+            with open('usersStorage.json', 'w') as eventFile:
                 print(users)
                 eventFile.write(json.dumps(users))
 
     
     def get_user(self, userName: str) -> SavedUser:
-        with open('D:/programms/проект АиП 2/backend/storage/users.json') as eventFile:
+        with open('D:/programms/project AiP/backend/storage/usersStorage.json') as eventFile:
             users = json.loads(eventFile.read())
         
         current_user = users.get(userName)

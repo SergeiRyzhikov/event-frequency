@@ -5,10 +5,12 @@ from fastapi.testclient import TestClient
 
 import sys
 
-sys.path.append('D:/programms/проект АиП 2/backend')
+import pytest
 
+
+sys.path.append('D:/programms/project AiP/backend')
 from main import app, get_user_from_token
-
+from models.outs import Token, User
 client = TestClient(app)
 
 def test_create_user_correct_data():
@@ -71,7 +73,7 @@ def test_create_event_incorrect_data():
     
 def test_delete_event_correct_data_positive():
     response = client.post('/api/delete_event', json={'token': {'token': 'token - sergei'}, 'event':{'name':'плакал', 'time': {'year': 2000, 'month': 12, 'day': 25, 'hour': 23, 'minute': 0}}})
-
+ 
     assert response.status_code == 200
     assert response.json() == {'isDelete': True}
 
@@ -87,8 +89,12 @@ def test_delete_event_incorrect_data():
     assert response.status_code == 422
 
 class Get_user_from_token_test(unittest.TestCase):
-    def get_user_from_token_correct(self):
-        self.assertEqual(get_user_from_token('token - sergei'), 'sergei')
+    def test_get_user_from_token_correct(self):
+        self.assertEqual(get_user_from_token(Token(token='token - sergei')), User(userName='sergei'))
 
-    def get_user_from_token_incorrect(self):
-        self.assertEqual(get_user_from_token(''), None)
+    def test_get_user_from_token_incorrect(self):
+        self.assertEqual(get_user_from_token(Token(token='')), User(userName=''))
+
+    def test_attribute_error(self):
+        with pytest.raises(AttributeError):
+            self.assertEqual(get_user_from_token('token - sergei'), User(userName=''))
