@@ -1,11 +1,10 @@
-from abc import ABC, abstractmethod
-from collections import defaultdict
-from typing import Union
 import json
+
+from typing import Union
+from abc import ABC, abstractmethod
 
 from models.outs import IsDelete, User
 from models.base import Event, SavedEvent
-
 
 def write_events(events: list[SavedEvent]) -> None:
     """ 
@@ -24,6 +23,7 @@ class EventStorage(ABC):
     This class defines the interface for managing event data.
     Subclasses should implement methods to create, retrieve, and delete events.
     """
+
     @abstractmethod
     def create_event(self, user: User, event: Event) -> None:
         """
@@ -66,6 +66,7 @@ class InFileEventStorage(EventStorage):
     """
     Implementation of EventStorage that stores event data in a JSON file.
     """
+
     def create_event(self, user: User, event: Event) -> None:
         """
         Create a new event and associate it with the user, then store it in the JSON file.

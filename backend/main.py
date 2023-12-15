@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from typing import Union, List
+from typing import Union
 from fastapi.middleware.cors import CORSMiddleware
 
 from models.base import SavedEvent
@@ -11,9 +11,9 @@ from storage.users import InFileUserStorage
 app = FastAPI()
 
 origins = [
-    "http://localhost",
-    "http://localhost:3000",
-    "http://localhost:3001",
+    'http://localhost',
+    'http://localhost:3000',
+    'http://localhost:3001',
 ]
 
 app.add_middleware(
@@ -104,7 +104,7 @@ def create_event(item: CreateEvent):
     
     return CreateEventMessage(message='all cool')
 
-@app.post('/api/events/me', response_model=Union[List[SavedEvent], None])
+@app.post('/api/events/me', response_model=Union[list[SavedEvent], None])
 def get_events(token: Token):
     """
     Get a list of events associated with the user.

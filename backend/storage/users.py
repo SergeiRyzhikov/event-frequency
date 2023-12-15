@@ -1,8 +1,8 @@
-from abc import ABC, abstractmethod
 import json
+
+from abc import ABC, abstractmethod
 from models.base import SavedUser
 from models.ins import CreateUser
-
 
 class UserStorage(ABC):
     """
@@ -47,6 +47,7 @@ class InFileUserStorage(UserStorage):
         :param new_user: User information to be created.
         :type new_user: CreateUser
         """
+
         event_file = open('storage/usersStorage.json', 'r')
         users = json.loads(event_file.read())
         event_file.close()
@@ -65,6 +66,7 @@ class InFileUserStorage(UserStorage):
         :returns: User information if found, or an empty SavedUser if not found.
         :rtype: SavedUser
         """
+
         with open('storage/usersStorage.json') as event_file:
             users = json.loads(event_file.read())
 
