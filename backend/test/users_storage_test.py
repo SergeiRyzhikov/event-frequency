@@ -2,12 +2,12 @@ import json
 import random
 import unittest
 import sys
-
+import os
 import pytest
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-
-sys.path.append('D:/programms/project AiP/backend')
 
 from storage.users import InFileUserStorage
 from models.base import Date, Event, SavedUser

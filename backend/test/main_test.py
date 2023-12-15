@@ -4,15 +4,17 @@ from fastapi.testclient import TestClient
 
 
 import sys
+import os
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+
 
 import pytest
+from main import get_user_from_token, app
 
-
-sys.path.append('D:/programms/project AiP/backend')
-from main import app, get_user_from_token
 from models.outs import Token, User
 client = TestClient(app)
-
 def test_create_user_correct_data():
     userName = f'{random.randint(10000000000, 1000000000000000000)}'
     response = client.post('/api/users', json={'userName': userName, 'password': '12345678'})

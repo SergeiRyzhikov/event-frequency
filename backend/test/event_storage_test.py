@@ -1,8 +1,11 @@
 import json
 import unittest
 import sys
-
+import os
 import pytest
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 
 sys.path.append('D:/programms/project AiP/backend')
@@ -13,12 +16,12 @@ from models.outs import User
 
 class Write_events_test(unittest.TestCase):
     def test_write_events_correct_data(self):
-        with open('D:/programms/project AiP/backend/storage/eventsStorage.json', 'r') as eventFile:
+        with open('storage/eventsStorage.json', 'r') as eventFile:
             events = json.loads(eventFile.read())
 
         write_events(events)
         
-        with open('D:/programms/project AiP/backend/storage/eventsStorage.json', 'r') as eventFile:
+        with open('storage/eventsStorage.json', 'r') as eventFile:
             new_events = json.loads(eventFile.read())
 
         self.assertEqual(events, new_events)

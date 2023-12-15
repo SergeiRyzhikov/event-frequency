@@ -13,56 +13,69 @@ def write_events(events: list[SavedEvent]) -> None:
 
     :param events: The events to write in file 
     :type url: list[SavedEvent]
-    :returns: -
-    :rtype: None
     """
-    with open('D:/programms/project AiP/backend/storage/eventsStorage.json', 'w') as eventFile:
+    with open('storage/eventsStorage.json', 'w') as eventFile:
         eventFile.write(json.dumps(events))
 
 class EventStorage(ABC):
+    """
+    Abstract base class for event storage.
+
+    This class defines the interface for managing event data.
+    Subclasses should implement methods to create, retrieve, and delete events.
+    """
     @abstractmethod
     def create_event(self, user: User, event: Event) -> None:
+        """
+        Create a new event and associate it with the user.
+
+        :param user: User for whom the event is created.
+        :type user: User
+        :param event: Event information to be created.
+        :type event: Event
+        """
         pass
 
     @abstractmethod
     def get_events(self, user: User) -> Union[dict, None]:
+        """
+        Retrieve a list of events associated with the user.
+
+        :param user: User for whom events are retrieved.
+        :type user: User
+        :returns: A list of user's events, or None if no events are found.
+        :rtype: list[SavedEvent] or None
+        """
         pass
 
     @abstractmethod
     def delete_event(self, user: User) -> IsDelete:
-        pass
+        """
+        Delete an event associated with the user.
 
-class InMemoryEventStorage(EventStorage):
-    def __init__(self) -> None:
-        self._events: dict[User.userName, list[SavedEvent]] = defaultdict()
-    
-    def create_event(self, user: User, event: Event) -> None:
-        user_name = user.userName
-        try: 
-            all_events = self._events[user_name]
-            for i in range(len(all_events)):
-                if all_events[i]['name']==event.name:
-                    print(event.name)
-                    all_events[i]['time'].append(event.time)
-                    break
-            else:
-                all_events.append({'name':event.name, 'time':[event.time]})
-        except KeyError:
-            self._events[user_name] = [{'name':event.name, 'time':[event.time]}]
-            
-    def get_events(self, user: User, event: Event) -> Union[list[SavedEvent], None]:
-        try:
-            return self._events[user.userName]
-        except:
-            return None
+        :param user: User for whom the event is deleted.
+        :type user: User
+        :param event: Event information to be deleted.
+        :type event: Event
+        :returns: IsDelete object indicating whether the event is deleted.
+        :rtype: IsDelete
+        """
+        pass
         
 class InFileEventStorage(EventStorage):
-    def __init__(self) -> None:
-        self._events: dict[User.userName, list[SavedEvent]] = defaultdict()
-
-    
+    """
+    Implementation of EventStorage that stores event data in a JSON file.
+    """
     def create_event(self, user: User, event: Event) -> None:
-        eventFile = open('D:/programms/project AiP/backend/storage/eventsStorage.json', 'r')
+        """
+        Create a new event and associate it with the user, then store it in the JSON file.
+
+        :param user: User for whom the event is created.
+        :type user: User
+        :param event: Event information to be created.
+        :type event: Event
+        """
+        eventFile = open('storage/eventsStorage.json', 'r')
         events = json.loads(eventFile.read())
         eventFile.close()
 
@@ -82,15 +95,32 @@ class InFileEventStorage(EventStorage):
         write_events(events)
             
     def get_events(self, user: User) -> Union[list[SavedEvent], None]:
-        with open('D:/programms/project AiP/backend/storage/eventsStorage.json') as eventFile:
+        """
+        Retrieve a list of events associated with the user from the JSON file.
+
+        :param user: User for whom events are retrieved.
+        :type user: User
+        :returns: A list of user's events, or None if no events are found.
+        :rtype: list[SavedEvent] or None
+        """
+        with open('storage/eventsStorage.json') as eventFile:
             events = json.loads(eventFile.read())
 
         return events.get(user.userName)
 
         
     def delete_event(self, user: User, event: Event) -> IsDelete:
+        """
+        Delete an event associated with the user from the JSON file.
 
-        with open('D:/programms/project AiP/backend/storage/eventsStorage.json') as eventFile:
+        :param user: User for whom the event is deleted.
+        :type user: User
+        :param event: Event information to be deleted.
+        :type event: Event
+        :returns: IsDelete object indicating whether the event is deleted.
+        :rtype: IsDelete
+        """
+        with open('storage/eventsStorage.json') as eventFile:
             events = json.loads(eventFile.read())
         user_events =  events.get(user.userName)
         if not user_events:

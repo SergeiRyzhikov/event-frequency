@@ -35,11 +35,28 @@ eventStorage = InFileEventStorage()
 
 
 def get_user_from_token(token: Token)->User:
+    """
+    Get user information based on a provided authentication token.
+
+    :param token: The authentication token
+    :type token: Token
+    :returns: User information associated with the token
+    :rtype: User
+    """
     return User(userName=token.token[8:])
 
 # Регистриция
 @app.post('/api/users', response_model=User)
 def create_user(user: CreateUser):
+    """
+    Create a new user.
+
+    :param user: User information for registration.
+    :type user: CreateUser
+    :returns: Newly created user.
+    :rtype: User
+    :raises HTTPException 400: If the user already exists.
+    """
     print(userStorage.get_user(user.userName))
     if userStorage.get_user(user.userName).userName:
         raise HTTPException(400, f'user already exists')
@@ -50,6 +67,15 @@ def create_user(user: CreateUser):
 # авторизация
 @app.post('/api/users/token', response_model=Token)
 def get_token(user: CreateToken):
+    """
+    Authenticate a user and return an authentication token.
+
+    :param user: User credentials for authentication.
+    :type user: CreateToken
+    :returns: Authentication token if authentication is successful.
+    :rtype: Token
+    :raises HTTPException 404: If the username or password is incorrect.
+    """
     u = userStorage.get_user(user.userName)
     if u.userName:
         if u.password == user.password:
@@ -62,18 +88,42 @@ def get_token(user: CreateToken):
         
 @app.post('/api/users/me', response_model=User) 
 def get_user(token:Token):
+    """
+    Get user information based on the provided authentication token.
+
+    :param token: The authentication token.
+    :type token: Token
+    :returns: User information associated with the token.
+    :rtype: User
+    """
     user =  get_user_from_token(token)
     return user
 
 @app.post('/api/create_event', response_model=CreateEventMessage) 
 def create_event(item: CreateEvent):
+    """
+    Create a new event for a user.
+
+    :param item: Event information to be created.
+    :type item: CreateEvent
+    :returns: A message indicating the success of event creation.
+    :rtype: CreateEventMessage
+    """
     user_name =  get_user_from_token(item.token)
     eventStorage.create_event(user_name, item.event)
     
-    return {'message': 'all cool'}
+    return CreateEventMessage(message='all cool')
 
 @app.post('/api/events/me', response_model = Union[List[SavedEvent], None]) 
 def get_events(token:Token):
+    """
+    Get a list of events associated with the user.
+
+    :param token: The authentication token.
+    :type token: Token
+    :returns: A list of user's events, or None if no events are found.
+    :rtype: list or None
+    """
     
     user_name =  get_user_from_token(token)
 
@@ -84,12 +134,12 @@ def get_events(token:Token):
 @app.post('/api/delete_event', response_model = IsDelete) 
 def delete_event(item: DeleteEvent):
     """
-    Delete event from fileEventStorage
+    Delete an event associated with the user.
 
-    :param item: contains token to check user and event, that need to delete
+    :param item: Information about the event to be deleted.
     :type item: DeleteEvent
-    :returns isdelete: is event delete
-    :rtype: bool
+    :returns: True if the event is deleted, False otherwise.
+    :rtype: IsDelete
     """
     user_name =  get_user_from_token(item.token)
     isDelete = eventStorage.delete_event(user_name, item.event)
