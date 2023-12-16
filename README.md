@@ -3,6 +3,7 @@ Web application, that provides the ability to track the frequency of own events
 
 This web application is available  by this link: https://fakelink
 
+Functionality: user registration, user authorization, adding a new event using input and calendar, deleting an event, selecting a time period and showing the frequency of events.
 # Example of using app
 
 Let's say you sometimes have a headache, and you want to see how often it occurs and mainly at what time. It is where this application will be useful.
