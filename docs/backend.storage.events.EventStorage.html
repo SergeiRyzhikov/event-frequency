@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>backend.storage.events.EventStorage</title>
+    <meta name="generator" content="pydoctor 23.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          backend <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="backend.storage.events.EventStorage.html" class="internal-link" title="This class"><wbr></wbr>Event<wbr></wbr>Storage</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#create_event" class="internal-link" title="backend.storage.events.EventStorage.create_event">create<wbr></wbr>_event</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#delete_event" class="internal-link" title="backend.storage.events.EventStorage.delete_event">delete<wbr></wbr>_event</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_events" class="internal-link" title="backend.storage.events.EventStorage.get_events">get<wbr></wbr>_events</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="backend.storage.events.html" class="internal-link" title="The parent of this class">events</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="backend.storage.events.EventStorage.html" class="internal-link" title="backend.storage.events.EventStorage"><wbr></wbr>Event<wbr></wbr>Storage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="backend.storage.events.InFileEventStorage.html" class="internal-link" title="backend.storage.events.InFileEventStorage"><wbr></wbr>In<wbr></wbr>File<wbr></wbr>Event<wbr></wbr>Storage</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="backend.storage.events.html#write_events" class="internal-link" title="backend.storage.events.write_events">write<wbr></wbr>_events</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">backend</a></code><wbr></wbr>.<code><a href="backend.storage.html" class="internal-link" title="backend.storage">storage</a></code><wbr></wbr>.<code><a href="backend.storage.events.html" class="internal-link" title="backend.storage.events">events</a></code><wbr></wbr>.<code><a href="backend.storage.events.EventStorage.html" class="internal-link" title="backend.storage.events.EventStorage">EventStorage</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">EventStorage</span>(ABC):</code></p><p>Known subclasses: <code><a href="backend.storage.events.InFileEventStorage.html" class="internal-link">backend.storage.events.InFileEventStorage</a></code></p>
+          <p><a href="classIndex.html#backend.storage.events.EventStorage">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Abstract base class for event storage.</p>
+<p>This class defines the interface for managing event data.
+Subclasses should implement methods to create, retrieve, and delete events.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id10">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#create_event" class="internal-link" title="backend.storage.events.EventStorage.create_event">create<wbr></wbr>_event</a></code></td>
+    <td>Create a new event and associate it with the user.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#delete_event" class="internal-link" title="backend.storage.events.EventStorage.delete_event">delete<wbr></wbr>_event</a></code></td>
+    <td>Delete an event associated with the user.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_events" class="internal-link" title="backend.storage.events.EventStorage.get_events">get<wbr></wbr>_events</a></code></td>
+    <td>Retrieve a list of events associated with the user.</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="backend.storage.events.EventStorage.create_event">
+    
+  </a>
+  <a name="create_event">
+    
+  </a>
+  <div class="functionHeader">
+    
+    @abstractmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">create_event</span><span class="function-signature">(self, user: <code>User</code>, event: <code>Event</code>)</span>:
+    
+    <a class="headerLink" href="#create_event" title="backend.storage.events.EventStorage.create_event">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="backend.storage.events.InFileEventStorage.html" class="internal-link">backend.storage.events.InFileEventStorage</a></code></div>
+    <div><p>Create a new event and associate it with the user.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">user:</span>User</td><td class="fieldArgDesc">User for whom the event is created.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">event:</span>Event</td><td class="fieldArgDesc">Event information to be created.</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="backend.storage.events.EventStorage.delete_event">
+    
+  </a>
+  <a name="delete_event">
+    
+  </a>
+  <div class="functionHeader">
+    
+    @abstractmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">delete_event</span><span class="function-signature">(self, user: <code>User</code>) -&gt; <code>IsDelete</code></span>:
+    
+    <a class="headerLink" href="#delete_event" title="backend.storage.events.EventStorage.delete_event">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="backend.storage.events.InFileEventStorage.html" class="internal-link">backend.storage.events.InFileEventStorage</a></code></div>
+    <div><p>Delete an event associated with the user.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">user:</span>User</td><td class="fieldArgDesc">User for whom the event is deleted.</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">event:</span>Event</td><td class="fieldArgDesc">Event information to be deleted.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">IsDelete</td><td class="fieldArgDesc">IsDelete object indicating whether the event is deleted.</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="backend.storage.events.EventStorage.get_events">
+    
+  </a>
+  <a name="get_events">
+    
+  </a>
+  <div class="functionHeader">
+    
+    @abstractmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">get_events</span><span class="function-signature">(self, user: <code>User</code>) -&gt; <code>Union[<wbr></wbr>dict, <wbr></wbr>None]</code></span>:
+    
+    <a class="headerLink" href="#get_events" title="backend.storage.events.EventStorage.get_events">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="backend.storage.events.InFileEventStorage.html" class="internal-link">backend.storage.events.InFileEventStorage</a></code></div>
+    <div><p>Retrieve a list of events associated with the user.</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">user:</span>User</td><td class="fieldArgDesc">User for whom events are retrieved.</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list[SavedEvent] or None</td><td class="fieldArgDesc">A list of user's events, or None if no events are found.</td></tr></table></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for backend,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    23.9.1 at 2023-12-16 12:05:52.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>
