@@ -13,5 +13,5 @@ Enter your username and password and click on the login button or if you already
 3)If all data is entered correctly you will be redirected to the main page. <img width="1080" alt="image" src="https://github.com/SergeiRyzhikov/event-frequency/assets/99610144/5623f582-dc07-4362-8ff6-470d42317aaf">
 4) On the main page there are two inputs: event name and date. Enter event name's and select day and time in the calendar pop-up window. <img width="1080" alt="image" src="https://github.com/SergeiRyzhikov/event-frequency/assets/99610144/0e037feb-1d86-414a-857c-59639d8ccb81">
 Click on the submit button or press enter. <img width="1080" alt="image" src="https://github.com/SergeiRyzhikov/event-frequency/assets/99610144/975868ab-a142-44c2-8a14-f0e9252273f7">
-
+5) Your event will appear on the left. <img width="1077" alt="image" src="https://github.com/SergeiRyzhikov/event-frequency/assets/99610144/7a53d697-e4d4-491b-b7fe-e7b97c2e8e9b">
 
