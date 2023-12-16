@@ -9,12 +9,18 @@ from models.outs import IsDelete, Token, User, CreateEventMessage
 from storage.users import InFileUserStorage
 
 app = FastAPI()
+"""
+Main object to set endpoints and settings
+"""
 
 origins = [
     'http://localhost',
     'http://localhost:3000',
     'http://localhost:3001',
 ]
+"""
+List of allow-origins
+"""
 
 app.add_middleware(
     CORSMiddleware,
@@ -25,7 +31,14 @@ app.add_middleware(
 )
 
 userStorage = InFileUserStorage()
+"""
+User storage to save and get users
+"""
+
 eventStorage = InFileEventStorage()
+"""
+Event storage to save and get events
+"""
 
 def get_user_from_token(token: Token) -> User:
     """
