@@ -1,6 +1,6 @@
 import json
-
 from abc import ABC, abstractmethod
+
 from models.base import SavedUser
 from models.ins import CreateUser
 
