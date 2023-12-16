@@ -16,3 +16,8 @@ Click on the submit button or press enter. <img width="1080" alt="image" src="ht
 5) Your event will appear on the left. <img width="1077" alt="image" src="https://github.com/SergeiRyzhikov/event-frequency/assets/99610144/7a53d697-e4d4-491b-b7fe-e7b97c2e8e9b">
 6) You can add event with same name or another name and time. They will all be displayed on the left. <img width="1080" alt="image" src="https://github.com/SergeiRyzhikov/event-frequency/assets/99610144/07f7e2b5-d0c4-4ac3-9a95-d307dc951026">
 7) Also you can delete any event by clicking button with the corresponding event.
+8) At the top right click on the red history button to view the frequency.
+   <img width="222" alt="image" src="https://github.com/SergeiRyzhikov/event-frequency/assets/99610144/7073f427-ee99-4d21-97c1-6d95d9ea11a9">
+9) There are two inputs on the history page. The first is the event name, dropdown list. <img width="1080" alt="image" src="https://github.com/SergeiRyzhikov/event-frequency/assets/99610144/e9261a14-7c67-406f-8361-71728132e845"> The second is chosing range of days.<img width="1080" alt="image" src="https://github.com/SergeiRyzhikov/event-frequency/assets/99610144/a62daca5-0ee6-4591-8eee-7d0fe76d66f8">
+
+
