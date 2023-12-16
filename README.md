@@ -15,4 +15,4 @@ Enter your username and password and click on the login button or if you already
 Click on the submit button or press enter. <img width="1080" alt="image" src="https://github.com/SergeiRyzhikov/event-frequency/assets/99610144/975868ab-a142-44c2-8a14-f0e9252273f7">
 5) Your event will appear on the left. <img width="1077" alt="image" src="https://github.com/SergeiRyzhikov/event-frequency/assets/99610144/7a53d697-e4d4-491b-b7fe-e7b97c2e8e9b">
 6) You can add event with same name or another name and time. They will all be displayed on the left. <img width="1080" alt="image" src="https://github.com/SergeiRyzhikov/event-frequency/assets/99610144/07f7e2b5-d0c4-4ac3-9a95-d307dc951026">
-
+7) Also you can delete any event by clicking button with the corresponding event.
