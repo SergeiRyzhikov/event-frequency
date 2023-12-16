@@ -21,6 +21,7 @@ Click on the submit button or press enter. <img width="1080" alt="image" src="ht
 9) There are two inputs on the history page. The first is the event name, dropdown list. <img width="1080" alt="image" src="https://github.com/SergeiRyzhikov/event-frequency/assets/99610144/e9261a14-7c67-406f-8361-71728132e845"> The second is chosing range of days.<img width="1080" alt="image" src="https://github.com/SergeiRyzhikov/event-frequency/assets/99610144/a62daca5-0ee6-4591-8eee-7d0fe76d66f8">
 10) After selecting an event and time period, the results will appear on the left. <img width="1080" alt="image" src="https://github.com/SergeiRyzhikov/event-frequency/assets/99610144/4069ac9a-5b7e-49d3-a9f5-5a18a00a545a">
 11) You can see how many times a given event occurred and the exact time of each.
-12) 
+12) To return to the main page, click on the red button at the top right.<img width="456" alt="image" src="https://github.com/SergeiRyzhikov/event-frequency/assets/99610144/a362b1b9-f1dc-49c4-a80f-1ee5a93ca6d9">
+
 
 
